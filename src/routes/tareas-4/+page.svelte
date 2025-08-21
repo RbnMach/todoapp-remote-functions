@@ -45,7 +45,7 @@
 
 	// Simplemente aplicamos debounce directamente a la remote function.
 	// TypeScript inferirá los tipos correctamente.
-	const debouncedUpdateTexto = debounce(updateTextoTarea, 700); // 500ms
+	const debouncedUpdateTexto = debounce(updateTextoTarea, 700); // 700ms
 </script>
 
 <div

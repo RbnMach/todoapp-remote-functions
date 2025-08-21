@@ -27,6 +27,8 @@
 
 	let expanded = $state(false);
 
+	// debounce es una funciona que ejecetuna una accion despues de un tiempo determinado
+	// el mismo se usa para eventos como oninput, onscroll, etc
 	const debouncedUpdateTexto = debounce(updateTextoTarea, 700); // 700ms
 </script>
 
