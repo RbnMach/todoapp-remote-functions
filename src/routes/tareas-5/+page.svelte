@@ -2,11 +2,6 @@
 	import { invalidate } from '$app/navigation';
 	import { debounce } from '$lib/debounce';
 	import { createTarea, changeCompleta, updateTextoTarea, deleteTarea } from './tareas.remote';
-	type Tarea = {
-		id: string;
-		texto: string;
-		completada: boolean;
-	};
 
 	let { data } = $props();
 
@@ -38,23 +33,29 @@
 <div
 	class="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center space-y-2 rounded-2xl border-2 p-4 px-7"
 >
-	<div class="my-2 w-72 text-justify">
+	<div class="my-2 w-96 text-justify">
 		<h1 class="text-center text-3xl font-extrabold">🌟 TAREAS 5 🌟</h1>
 		<small class="block text-gray-500">
 			<p
 				class="overflow-hidden transition-all duration-300 ease-in-out"
 				class:line-clamp-2={!expanded}
 			>
-				Esta app usa <b>Remote Functions + Load</b> para la comunicación entre cliente y servidor.
-				Con <code>load</code> cargamos los datos esenciales de la página.
+				Esta app combina <b>`load`</b> para una carga inicial rápida (SSR) con
+				<b>Remote Functions</b>
+				para las interacciones dinámicas.
+				<br /><br />
+				- <strong>Añadir Tareas:</strong> Se usa una <code>form</code> remote function. Su método
+				<code>.enhance()</code>
+				es muy conveniente, ya que **refresca los datos de la página automáticamente** tras un envío
+				exitoso.
 				<br />
-				<strong>Recomendación:</strong>
-				<br />
-				- Usa <code>load</code> para los datos esenciales de la página (carga inicial más rápida).
-				<br />
-				- Usa <b>Remote Functions</b> para acciones dinámicas (ej: dar like, buscar, etc.).
-				<br/>
-				En el servidor en load usamos <code>depends('app:tareas')</code> para dar un identificador al load para que cuando necesitemos que se vuelva a cargar los datos usamos <code>invalidate('app:tareas')</code> en el cliente, esto ara que el load se vuelva a ejecutar.
+				- <strong>Editar/Eliminar:</strong> Se usan <code>command</code> remote functions para
+				acciones más directas.
+				<br /><br />
+				Para asegurar una actualización eficiente después de un <code>command</code>, declaramos una
+				dependencia con <code>depends('app:tareas')</code> en el <code>load</code>, y luego la
+				invalidamos desde el cliente con <code>invalidate('app:tareas')</code> para recargar los
+				datos actualizados.
 			</p>
 			<a
 				href={'javascript:void(0)'}
@@ -71,7 +72,9 @@
 			await submit();
 			// Esto se ejecuta después de que todo el proceso (incluida la respuesta del servidor) ha terminado
 			if (createTarea.result?.satisfactorio) {
-				invalidate('app:tareas');
+				// A diferencia de los `command`, el remote fucntions en `form` recarga los datos de la página
+				// automáticamente (load) para imitar el comportamiento de los `actions` tradicionales.
+				// Por lo tanto no es neceario usar invalidate('app:tareas');
 				form.reset();
 			}
 		})}
@@ -137,7 +140,7 @@
 					elemento.disabled = false;
 					elemento.innerText = 'X';
 
-					if (res.satisfactorio) {						
+					if (res.satisfactorio) {
 						invalidate('app:tareas');
 					}
 				}}

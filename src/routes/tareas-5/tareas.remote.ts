@@ -3,6 +3,7 @@ import { tareas } from '$lib/db-prueba';
 
 // El metodo "form" es para crear tareas recibiendo datos a partir de un formulario
 export const createTarea = form(async (formData) => {
+	console.log('Ejecuto createTarea');
 	const texto = formData.get('tarea') as string;
 
 	// simulamos un proceso lento para esperar 4 segundos
@@ -16,6 +17,8 @@ export const createTarea = form(async (formData) => {
 });
 
 export const changeCompleta = command('unchecked', async (valores: { id: string }) => {
+	console.log('Ejecuto changeCompleta');
+
 	// desestructuramos el objeto
 	const { id } = valores;
 	// buscamos la tarea
@@ -29,6 +32,8 @@ export const changeCompleta = command('unchecked', async (valores: { id: string 
 export const updateTextoTarea = command(
 	'unchecked',
 	async (valores: { id: string; texto: string }) => {
+		console.log('Ejecuto updateTextoTarea');
+
 		const { id, texto } = valores;
 		const tarea = tareas.find((t) => t.id === id);
 		if (tarea) {
@@ -40,6 +45,8 @@ export const updateTextoTarea = command(
 );
 
 export const deleteTarea = command('unchecked', async (valores: { id: string }) => {
+	console.log('Ejecuto deleteTarea');
+
 	const { id } = valores;
 
 	// simulamos un proceso lento para esperar 4 segundos
