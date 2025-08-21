@@ -48,9 +48,7 @@
 	const debouncedUpdateTexto = debounce(updateTextoTarea, 700); // 700ms
 </script>
 
-<div
-	class="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center space-y-2 rounded-2xl border-2 p-4 px-7"
->
+<div class="mt-16 w-fit space-y-2 rounded-2xl border-2 p-4 px-7">
 	<div class="my-2 w-72 text-justify">
 		<h1 class="text-center text-3xl font-extrabold">TAREAS 4</h1>
 		<small class="block text-gray-500">

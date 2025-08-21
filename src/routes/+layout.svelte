@@ -15,49 +15,51 @@
 		<li>
 			<a
 				class:bg-blue-400={page.url.pathname === '/'}
-				class="flex w-52 h-20 flex-col rounded-2xl border-2 p-2 px-4 text-center"
+				class="flex h-20 w-52 flex-col rounded-2xl border-2 p-2 px-4 text-center"
 				href="/"
 			>
-				Tareas 1<small>FrontEnd <br>($state, $derived, $effect)</small>
+				Tareas 1<small>FrontEnd <br />($state, $derived, $effect)</small>
 			</a>
 		</li>
 		<li>
 			<a
 				class:bg-blue-400={page.url.pathname === '/tareas-2'}
-				class="flex w-52 h-20 flex-col rounded-2xl border-2 p-2 px-4 text-center"
+				class="flex h-20 w-52 flex-col rounded-2xl border-2 p-2 px-4 text-center"
 				href="/tareas-2"
 			>
-				Tareas 2 <small>FrontEnd + Signals <br>($state, $derived, $effect.root)</small>
+				Tareas 2 <small>FrontEnd + Signals <br />($state, $derived, $effect.root)</small>
 			</a>
 		</li>
 		<li>
 			<a
 				class:bg-blue-400={page.url.pathname === '/tareas-3'}
-				class="flex w-52 h-20 flex-col rounded-2xl border-2 p-2 px-4 text-center"
+				class="flex h-20 w-52 flex-col rounded-2xl border-2 p-2 px-4 text-center"
 				href="/tareas-3"
 			>
-				Tareas 3 <small>FrontEnd - Backend <br>(Load, Action)</small>
+				Tareas 3 <small>FrontEnd - Backend <br />(Load, Action)</small>
 			</a>
 		</li>
 		<li>
 			<a
 				class:bg-blue-400={page.url.pathname === '/tareas-4'}
-				class="flex w-52 h-20 flex-col rounded-2xl border-2 p-2 px-4 text-center"
+				class="flex h-20 w-52 flex-col rounded-2xl border-2 p-2 px-4 text-center"
 				href="/tareas-4"
 			>
-				Tareas 4 <small>FrontEnd - Backend <br>(Remote functions)</small>
+				Tareas 4 <small>FrontEnd - Backend <br />(Remote functions)</small>
 			</a>
 		</li>
 		<li>
 			<a
 				class:bg-blue-400={page.url.pathname === '/tareas-5'}
-				class="flex w-52 h-20 flex-col rounded-2xl border-2 p-2 px-4 text-center"
+				class="flex h-20 w-52 flex-col rounded-2xl border-2 p-2 px-4 text-center"
 				href="/tareas-5"
 			>
-				🌟 Tareas 5 🌟 <small>FrontEnd - Backend <br>(Load + Remote functions)</small>
+				🌟 Tareas 5 🌟 <small>FrontEnd - Backend <br />(Load + Remote functions)</small>
 			</a>
 		</li>
 	</ul>
 </header>
 
-{@render children?.()}
+<div class="flex items-center justify-center">
+	{@render children?.()}
+</div>
