@@ -23,6 +23,15 @@
 		</li>
 		<li>
 			<a
+				class:bg-blue-400={page.url.pathname === '/signals'}
+				class="flex h-20 w-52 flex-col rounded-2xl border-2 p-2 px-4 text-center"
+				href="/signals"
+			>
+				Uso de Signals<small>FrontEnd <br />($state, get, set)</small>
+			</a>
+		</li>
+		<li>
+			<a
 				class:bg-blue-400={page.url.pathname === '/tareas-2'}
 				class="flex h-20 w-52 flex-col rounded-2xl border-2 p-2 px-4 text-center"
 				href="/tareas-2"
