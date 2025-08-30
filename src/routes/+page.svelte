@@ -81,7 +81,7 @@
 </script>
 
 <div class="mt-16 w-fit space-y-2 rounded-2xl border-2 p-4 px-7">
-	<div class="my-2 w-72 text-justify">
+	<div class="my-2 w-96 text-justify">
 		<h1 class="text-center text-3xl font-extrabold">TAREAS 1</h1>
 		<small class="text-gray-500">
 			El código solo se encuentra en el FrontEnd y usa <code>$state</code>, <code>$derived</code> y
